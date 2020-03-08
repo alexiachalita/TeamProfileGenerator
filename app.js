@@ -28,19 +28,21 @@ async function askQuestions(employeeList) {
         console.log(answers['What is the role of the employee?']);
         if (answers['What is the role of the employee?'].toLowerCase() === 'intern') {
             //Ask what school
-            const school = await inquirer.prompt({name: "What is the name of the student's school?", type: 'input'});
+            const schoolanswer = await inquirer.prompt({name: "What is the name of the student's school?", type: 'input'});
             const name = answers['What is the employee name?'];
             const id = answers['What is the employee id?'];
             const email = answers['What is the email of the employee?'];
+            const school = schoolanswer["What is the name of the student's school?"];
             const int = new Intern(name, id, email, school);
             employeeList.push(int);
         }
         if (answers['What is the role of the employee?'].toLowerCase() === 'manager') {
             //Ask what Office Number
-            const office = await inquirer.prompt({name: "What is the office number?", type: 'input'});
+            const officeanswer = await inquirer.prompt({name: "What is the office number?", type: 'input'});
             const name = answers['What is the employee name?'];
             const id = answers['What is the employee id?'];
             const email = answers['What is the email of the employee?'];
+            const office = officeanswer["What is the office number?"];
             const man = new Manager(name, id, email, office);
             employeeList.push(man);
         }
@@ -122,3 +124,4 @@ init();
 // for further information. Be sure to test out each class and verify it generates an 
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work!```
+
